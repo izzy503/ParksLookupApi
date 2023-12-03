@@ -15,16 +15,11 @@ namespace ParkLookupApi.Controllers
       _db = db;
     }
 
-   
+
     [HttpGet]
-    public async Task<List<Park>> Get(string location, string name, string climate)
+    public async Task<List<Park>> Get(string location, string name,)
     {
       IQueryable<Park> query = _db.Parks.AsQueryable();
-
-      if (climate != null)
-      {
-        query = query.Where(entry => entry.Climate == climate);
-      }
 
       if (name != null)
       {
@@ -39,7 +34,7 @@ namespace ParkLookupApi.Controllers
       return await query.ToListAsync();
     }
 
-   
+
     [HttpGet("{id}")]
     public async Task<ActionResult<Park>> GetPark(int id)
     {
@@ -53,7 +48,7 @@ namespace ParkLookupApi.Controllers
       return park;
     }
 
-    
+
     [HttpPost]
     public async Task<ActionResult<Park>> Post([FromBody] Park park)
     {
@@ -62,7 +57,7 @@ namespace ParkLookupApi.Controllers
       return CreatedAtAction(nameof(GetPark), new { id = park.ParkId }, park);
     }
 
-   
+
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Park park)
     {
@@ -97,7 +92,7 @@ namespace ParkLookupApi.Controllers
       return _db.Parks.Any(e => e.ParkId == id);
     }
 
-    
+
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeletePark(int id)
     {
