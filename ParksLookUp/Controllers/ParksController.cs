@@ -17,7 +17,7 @@ namespace ParkLookupApi.Controllers
 
 
     [HttpGet]
-    public async Task<List<Park>> Get(string location, string name,)
+    public async Task<List<Park>> Get(string location, string name)
     {
       IQueryable<Park> query = _db.Parks.AsQueryable();
 
