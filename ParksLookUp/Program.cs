@@ -3,9 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 var webAppBuilder = WebApplication.CreateBuilder(args);
 
-
-
-webAppBuilder.Services.AddControllers()
+webAppBuilder.Services.AddControllers();
 
 webAppBuilder.Services.AddDbContext<ParkLookupApiContext>(
     dbContextOptions => dbContextOptions
@@ -18,7 +16,6 @@ webAppBuilder.Services.AddEndpointsApiExplorer();
 webAppBuilder.Services.AddSwaggerGen();
 
 var application = webAppBuilder.Build();
-
 
 if (application.Environment.IsDevelopment())
 {
