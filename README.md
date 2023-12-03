@@ -34,6 +34,8 @@ This project is named the "Park Lookup API" and serves as an archive of national
 3. Within the production directory "ParksLookupApi", create two new files: `appsettings.json` and `appsettings.Development.json`.
 4. Within `appsettings.json`, put in the following code. Make sure to replace the `uid` and `pwd` values in the MySQL database connection string with your username and password for MySQL.
 
+.
+
 
 {
   "Logging": {
